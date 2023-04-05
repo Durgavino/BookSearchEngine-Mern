@@ -60,22 +60,9 @@ const resolvers = {
             return { token, user };
           },
 
-        // saveBook: async (parent, { input }, context) => {
-        //    // console.log("helloWorld");
-
-        //     console.log(input);
-        //     if (context.user) {
-
-        //         return User.findOneAndUpdate({ _id: context.user._id },
-        //             { $addToSet: { savedBooks: { input } } },
-        //             { new: true }
-        //         );
-        //     }
-        //     throw new AuthenticationError('You need to be logged in!');
-
-        // },
+      
         saveBook:async (parent, { input }, context) => {
-            //console.log(input);
+            console.log(input);
             if (context.user) {
                 return User.findOneAndUpdate({ _id: context.user._id },
                     { $addToSet: { savedBooks:  input  } },
