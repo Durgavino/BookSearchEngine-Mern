@@ -2,7 +2,7 @@
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { useQuery } from'@apollo/react-hooks';
 import {QUERY_ME} from '../utils/queries';
-//import { getMe, deleteBook } from '../utils/API';
+
 //import { getMe } from '../utils/queries';
 import {removeBook} from '../utils/mutations';
 import Auth from '../utils/auth';
