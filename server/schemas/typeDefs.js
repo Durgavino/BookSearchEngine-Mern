@@ -11,7 +11,7 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(bookData: BookData!): User
+    saveBook(input: Bookdata!): User
     removeBook(bookId: ID!): User
   },
 type User {
@@ -30,7 +30,7 @@ type Book {
     link: String
 },
 
-input BookData {
+input Bookdata  {
     bookId: String!
     authors: [String]
     title: String!
