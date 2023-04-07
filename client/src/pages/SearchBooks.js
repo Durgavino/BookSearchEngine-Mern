@@ -33,7 +33,12 @@ const [saveBook,{error}]=useMutation(save_Book);
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      // const response = await searchGoogleBooks(searchInput);
+
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
+      );
+
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -41,7 +46,7 @@ const [saveBook,{error}]=useMutation(save_Book);
 
      const { items } = await response.json();
 
-      const bookData = items.map((book) => ({
+      const Bookdata = items.map((book) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ['No author to display'],
         title: book.volumeInfo.title,
@@ -49,7 +54,7 @@ const [saveBook,{error}]=useMutation(save_Book);
         image: book.volumeInfo.imageLinks?.thumbnail || '',
       }));
 
-      setSearchedBooks(bookData);
+      setSearchedBooks(Bookdata);
       setSearchInput('');
     } catch (err) {
       console.error(err);
@@ -69,11 +74,9 @@ const [saveBook,{error}]=useMutation(save_Book);
     }
 
     try {
-      //const response = await save_Book(bookToSave, token);
-
-      const { data } = await saveBook({
-        // variables: { input: { ...bookToSave } },
-        variables: { bookData:bookToSave  },
+          const { data } = await saveBook({
+        variables: { Bookdata: { ...bookToSave } },
+        
       });
     
 
