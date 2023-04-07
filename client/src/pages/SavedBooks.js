@@ -1,4 +1,4 @@
-//import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { useQuery } from'@apollo/react-hooks';
 import {QUERY_ME} from '../utils/queries';
@@ -30,7 +30,7 @@ console.log(userList);
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
-      const { data } = await remove_Book({
+      const { data } = await removeBook({
       
         // variables: { input: { ...bookId } },
         variables: { bookId },
