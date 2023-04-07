@@ -25,15 +25,9 @@ console.log(userList);
     }
 
     try {
-      //const response = await remove_Book(bookId, token);
-      
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
+     
       const { data } = await removeBook({
-      
-        // variables: { input: { ...bookId } },
-        variables: { bookId },
+                  variables: { bookId },
       });
       
 
