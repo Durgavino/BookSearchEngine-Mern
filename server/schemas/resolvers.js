@@ -3,22 +3,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-    // Query: {
-
-    //     me: async () => {
-    //         return User.find();
-    //     },
-    //     me: async (parent, args) => {
-    //         return User.findOne(args.id)
-    //     },
-    //     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
-    //     me: async (parent, args, context) => {
-    //         if (context.user) {
-    //             return User.findOne({ _id: context.user._id });
-    //         }
-    //         throw new AuthenticationError('You need to be logged in!');
-    //     },
-    // },
+    
     Query: {
         me: async (parent, args, context) => {
           if (context.user) {
@@ -48,11 +33,6 @@ const resolvers = {
         },
 
 
-        // addUser: async (parent, { username, email, password }) => {
-        //     const user = await User.create({ username, email, password });
-        //     const token = signToken(user);
-        //     return { token, user };
-        // },
         addUser: async (parent, args) => {
             const user = await User.create(args);
             const token = signToken(user);
