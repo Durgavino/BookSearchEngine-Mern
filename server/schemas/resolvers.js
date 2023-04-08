@@ -46,7 +46,7 @@ const resolvers = {
             console.log(Bookdata);
             if (context.user) {
                 const newuser=await User.findOneAndUpdate({ _id: context.user._id },
-                    { $addToSet: { savedBooks:  input  } },
+                    { $addToSet: { savedBooks:  Bookdata  } },
                     { new: true,
                         runValidators: true, }
                 );
