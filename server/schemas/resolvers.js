@@ -42,8 +42,8 @@ const resolvers = {
           },
 
       
-        saveBook:async (parent, { input }, context) => {
-            console.log(input);
+        saveBook:async (parent, { Bookdata }, context) => {
+            console.log(Bookdata);
             if (context.user) {
                 const newuser=await User.findOneAndUpdate({ _id: context.user._id },
                     { $addToSet: { savedBooks:  input  } },
